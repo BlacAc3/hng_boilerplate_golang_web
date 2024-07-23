@@ -38,7 +38,11 @@ func (w *WaitlistUser) CreateWaitlistUser(db *gorm.DB) error {
 func (w *WaitlistUser) GetWaitlistUserByEmail(db *gorm.DB) (int, error) {
 	err, nerr := postgresql.SelectOneFromDb(db, &w, "email = ?", w.Email)
 	if nerr != nil {
+<<<<<<< HEAD
 		return http.StatusBadRequest, nerr
+=======
+		return http.StatusBadRequest, nerr 
+>>>>>>> dev
 	}
 
 	if err != nil {

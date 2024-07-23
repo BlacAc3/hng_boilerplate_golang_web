@@ -5,7 +5,6 @@ import (
 	"log"
 
 	"github.com/go-playground/validator/v10"
-
 	"github.com/hngprojects/hng_boilerplate_golang_web/internal/config"
 	"github.com/hngprojects/hng_boilerplate_golang_web/internal/models/migrations"
 	"github.com/hngprojects/hng_boilerplate_golang_web/internal/models/seed"
@@ -19,9 +18,7 @@ func main() {
 	logger := utility.NewLogger() //Warning !!!!! Do not recreate this action anywhere on the app
 
 	configuration := config.Setup(logger, "./app")
-
 	postgresql.ConnectToDatabase(logger, configuration.Database)
-
 	validatorRef := validator.New()
 
 	db := storage.Connection()
@@ -37,5 +34,4 @@ func main() {
 
 	utility.LogAndPrint(logger, fmt.Sprintf("Server is starting at 127.0.0.1:%s", configuration.Server.Port))
 	log.Fatal(r.Run(":8080"))
-
 }
